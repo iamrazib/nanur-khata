@@ -18,3 +18,8 @@
 4. Add beef and cook until the spices combine.
 5. Add water and simmer until the meat becomes tender.
 6. Serve hot with rice.
+
+
+## Serving Suggestion
+
+Serve Mezban hot with plain rice, salad and lemon.
