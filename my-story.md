@@ -130,3 +130,53 @@ A merge conflict does not mean Git is broken. It means Git needs a developer to 
 **Screenshot 5:** Intentional merge conflict in `biryani.md`.
 **Screenshot 6:** Conflict resolution and commit history.
 
+
+
+## Chapter 4: Mitu Joins In
+
+Nanu's recipe book was growing, and my cousin Mitu in Chattogram wanted to contribute. I created a GitHub repository named `nanur-khata` and connected it to my local project using `git remote add origin`. I then uploaded my existing recipes using `git push -u origin main`.
+
+To simulate Mitu working remotely, I cloned the repository into a separate folder using `git clone`. I configured a local Git author identity for Mitu and created a new recipe named `chittagong-mezban.md`. After adding and committing the recipe, I pushed the change to GitHub.
+
+Back in my original project, I ran `git fetch origin` to download Mitu's new commit. I checked the remote changes and confirmed that the Mezban recipe was not yet present locally. After executing `git merge origin/main`, the recipe appeared in my original project.
+
+Later, Mitu added serving suggestions and pushed another commit. This time, I used `git pull` to download and integrate the updated recipe in one step.
+
+### Commands Used
+
+```text
+git remote add origin https://github.com/iamrazib/nanur-khata.git
+git push -u origin main
+git clone https://github.com/iamrazib/nanur-khata.git mitu-nanur-khata
+git config user.name "Mitu"
+git config user.email "mitu@example.com"
+git add chittagong-mezban.md
+git commit -m "Mitu adds traditional Chattogram Mezban recipe"
+git push origin main
+git fetch origin
+git log --oneline main..origin/main
+git merge origin/main
+git add chittagong-mezban.md
+git commit -m "Mitu adds serving suggestions to Mezban recipe"
+git push origin main
+git pull --no-rebase origin main
+```
+
+### Difference Between Fetch + Merge and Pull
+
+I learned that `git fetch` downloads new commits from GitHub without modifying the current branch. After reviewing the changes, I can use `git merge origin/main` to integrate them.
+
+In contrast, `git pull` combines fetching and integration in a single command. It is faster for routine updates, while separate fetching and merging allows more control over reviewing changes before integration.
+
+### What I Learned
+
+This chapter taught me how multiple contributors can work on the same GitHub repository from different locations. I learned how to clone a repository, contribute changes, push commits, fetch updates, merge remote changes and keep local files synchronized.
+
+It also demonstrated why clear commit messages and regular synchronization are important when several developers work on one project.
+
+### Screenshot Evidence
+
+**Screenshot 1:** Connecting the local repository and pushing to GitHub.
+**Screenshot 2:** Mitu cloning the repository and pushing the Mezban recipe.
+**Screenshot 3:** Fetching and merging Mitu's changes.
+**Screenshot 4:** Mitu's second update and successful git pull.
