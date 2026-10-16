@@ -1,0 +1,9 @@
+
+# Nanu's confidential recipe
+secret-masala.txt
+
+# Temporary files
+*.tmp
+
+# Unfinished draft recipes
+draft/
