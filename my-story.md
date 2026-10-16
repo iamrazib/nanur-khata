@@ -76,3 +76,57 @@ Screenshot 8: Ignore rules and verification results.
 Screenshot 9: Successful `.gitignore` commit.
 
 
+## Chapter 3: The Eid Special
+
+Nanu wanted me to prepare biryani and shemai recipes for Eid without changing the main recipe book immediately. I created a new Git branch named `eid-special` using `git branch eid-special` and switched to it using `git checkout eid-special`.
+
+On this branch, I created `biryani.md` and `shemai.md`. I saved each recipe in a separate commit with a meaningful commit message. This helped me understand how branches allow developers to work on new features independently.
+
+Next, I switched back to `main` and checked whether the Eid recipes were available. The files were not present because the changes belonged to the `eid-special` branch. After running `git merge eid-special`, both recipes became available on the main branch.
+
+### Merge Conflict Challenge
+
+To understand merge conflicts, I created another branch named `conflict-demo`. I changed the cardamom measurement to 4 pods on `main` and 6 pods on `conflict-demo`.
+
+When I attempted to merge the branches, Git reported a conflict in `biryani.md`. I opened the file, examined the conflicting changes, and selected 4 cardamom pods as the final measurement.
+
+I removed the conflict markers, staged the corrected file, and committed the resolution.
+
+### Commands Used
+
+git branch eid-special
+git checkout eid-special
+git add biryani.md
+git commit -m "Add Nanu's Eid biryani recipe"
+git add shemai.md
+git commit -m "Add Nanu's traditional Eid shemai recipe"
+git checkout main
+git merge eid-special
+git log --oneline --graph --all
+git branch conflict-demo
+git add biryani.md
+git commit -m "Adjust biryani cardamom measurement on main"
+git checkout conflict-demo
+git add biryani.md
+git commit -m "Propose alternative cardamom measurement"
+git checkout main
+git merge conflict-demo
+git add biryani.md
+git commit -m "Resolve biryani cardamom measurement merge conflict"
+
+
+### What I Learned
+
+I learned that Git branches allow developers to work independently without affecting the main project. I also learned how to merge changes and resolve conflicts when two branches modify the same content.
+
+A merge conflict does not mean Git is broken. It means Git needs a developer to review the competing changes and decide the final content.
+
+### Screenshot Evidence
+
+**Screenshot 1:** Creating and switching to `eid-special`.
+**Screenshot 2:** Separate biryani and shemai commits.
+**Screenshot 3:** Eid recipes absent from the main branch.
+**Screenshot 4:** Successful merge of `eid-special`.
+**Screenshot 5:** Intentional merge conflict in `biryani.md`.
+**Screenshot 6:** Conflict resolution and commit history.
+
