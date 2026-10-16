@@ -1,6 +1,6 @@
-Nanu's Khata — My Git Learning Journey
+## Nanu's Khata — My Git Learning Journey
 
-Chapter 1: The First Recipe
+## Chapter 1: The First Recipe
 
 Nanu asked me to preserve her traditional bhapa pitha recipe before winter. I started by configuring my Git username and email using git config --global. Then I created a folder named nanur-khata and initialized a Git repository using git init.
 
@@ -10,7 +10,7 @@ Nanu then corrected the gur measurement from 2 cups to 1.5 cups. I edited the fi
 
 I saved the recipe using a meaningful git commit -m message. Finally, I accidentally staged bazar-list.txt and used git reset bazar-list.txt to unstage it without deleting the file.
 
-Commands Used
+## Commands Used
 
 git config --global user.name "Sk. Razibul Islam"
 git config --global user.email "iamrazib@gmail.com"
@@ -25,16 +25,54 @@ git add bazar-list.txt
 git reset bazar-list.txt
 git log --oneline
 
-What I Learned
+## What I Learned
 
 I learned how to initialize a repository, track files, compare staged and unstaged changes, and create meaningful commits. I also learned that unstaging a file does not delete it from my computer.
 
-Screenshot Evidence
+## Screenshot Evidence
 
-Insert Screenshot 1: Git initialization.
-Insert Screenshot 2: Recipe staging.
-Insert Screenshot 3: unstaged measurement correction.
-Insert Screenshot 4: staged diff output.
-Insert Screenshot 5: First commit.
-Insert Screenshot 6: Unstaging the shopping list.
+Screenshot 1: Git initialization.
+Screenshot 2: Recipe staging.
+Screenshot 3: unstaged measurement correction.
+Screenshot 4: staged diff output.
+Screenshot 5: First commit.
+Screenshot 6: Unstaging the shopping list.
+
+
+## Chapter 2: The Secret Spice
+
+Nanu warned me that her secret spice recipe must never be uploaded to GitHub. To protect it, I created a file named `secret-masala.txt`, two temporary files ending in `.tmp`, and a `draft` folder containing an unfinished recipe.
+
+I created a `.gitignore` file and added three rules: `secret-masala.txt`, `*.tmp`, and `draft/`. These rules tell Git to ignore the confidential recipe, temporary files, and unfinished drafts.
+
+After saving `.gitignore`, I ran `git status` and noticed that the ignored files were no longer listed as untracked. I also executed `git check-ignore -v` to verify which rules were responsible for ignoring each file.
+
+Finally, I committed `.gitignore` with the message "Protect secret spice recipe and exclude temporary drafts".
+
+### Commands Used
+
+New-Item secret-masala.txt -ItemType File
+New-Item cooking-notes.tmp -ItemType File
+New-Item recipe-backup.tmp -ItemType File
+New-Item draft -ItemType Directory
+New-Item draft\unfinished-recipe.md -ItemType File
+git status
+git check-ignore -v secret-masala.txt cooking-notes.tmp recipe-backup.tmp draft/unfinished-recipe.md
+git ls-files -- secret-masala.txt
+git add .gitignore
+git commit -m "Protect secret spice recipe and exclude temporary drafts"
+
+
+### What I Learned
+
+I learned that `.gitignore` prevents untracked confidential and unnecessary files from being included in future commits. I also learned how to verify ignore rules using `git check-ignore` and how to confirm that a secret file is not tracked using `git ls-files`.
+
+This is important in DevOps because developers must prevent sensitive data and temporary files from entering shared repositories.
+
+### Screenshot Evidence
+
+Screenshot 7: Git status before creating `.gitignore`.
+Screenshot 8: Ignore rules and verification results.
+Screenshot 9: Successful `.gitignore` commit.
+
 
