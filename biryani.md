@@ -6,7 +6,7 @@
 - 500g chicken
 - 2 onions
 - 1 cup yogurt
-- 2 cardamom pods
+- 6 cardamom pods
 - 2 cinnamon sticks
 - Salt and spices
 
