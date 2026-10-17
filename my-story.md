@@ -74,6 +74,8 @@ This is important in DevOps because developers must prevent sensitive data and t
 Screenshot 7: Git status before creating `.gitignore`.
 Screenshot 8: Ignore rules and verification results.
 Screenshot 9: Successful `.gitignore` commit.
+Screenshot 10: Final commit.
+Screenshot 11: Final verification.
 
 
 ## Chapter 3: The Eid Special
@@ -123,12 +125,12 @@ A merge conflict does not mean Git is broken. It means Git needs a developer to 
 
 ### Screenshot Evidence
 
-**Screenshot 1:** Creating and switching to `eid-special`.
-**Screenshot 2:** Separate biryani and shemai commits.
-**Screenshot 3:** Eid recipes absent from the main branch.
-**Screenshot 4:** Successful merge of `eid-special`.
-**Screenshot 5:** Intentional merge conflict in `biryani.md`.
-**Screenshot 6:** Conflict resolution and commit history.
+**Screenshot 12:** Creating and switching to `eid-special`.
+**Screenshot 13:** Separate biryani and shemai commits.
+**Screenshot 14:** Eid recipes absent from the main branch.
+**Screenshot 15:** Successful merge of `eid-special`.
+**Screenshot 16:** Intentional merge conflict in `biryani.md`.
+**Screenshot 17:** Conflict resolution and commit history.
 
 
 
@@ -176,7 +178,62 @@ It also demonstrated why clear commit messages and regular synchronization are i
 
 ### Screenshot Evidence
 
-**Screenshot 1:** Connecting the local repository and pushing to GitHub.
-**Screenshot 2:** Mitu cloning the repository and pushing the Mezban recipe.
-**Screenshot 3:** Fetching and merging Mitu's changes.
-**Screenshot 4:** Mitu's second update and successful git pull.
+**Screenshot 18:** Connecting the local repository and pushing to GitHub.
+**Screenshot 19:** Mitu cloning the repository and pushing the Mezban recipe.
+**Screenshot 20:** Fetching and merging Mitu's changes.
+**Screenshot 21:** Mitu's second update and successful git pull.
+
+
+
+### Chapter 5: Half-Cooked Halua and Time Travel
+
+Nanu asked me to prepare suji halua, so I created `halua.md` and committed the initial recipe. While updating the cooking instructions, Nanu reminded me that the biryani needed an additional cardamom instruction.
+
+I used `git stash` to save my unfinished halua changes temporarily. Then I updated `biryani.md` and committed the correction. Afterward, I ran `git stash pop` to restore the halua changes and complete the recipe.
+
+Next, I organized the family recipes into `recipes/eid/` and `recipes/traditional/` using `git mv`. I also created an outdated recipe and removed it using `git rm` to understand how Git tracks deletions. I examined the commit history using `git log --stat -M`.
+
+To inspect a previous change, I selected a commit SHA from `git log --oneline` and ran `git show` to view its details.
+
+Finally, I created a separate branch named `time-travel-test` and committed a temporary file. I used `git reset --hard HEAD~1` to return to the previous commit. The temporary file disappeared, showing how a hard reset can remove changes introduced by a later commit from the current branch's working version.
+
+### Commands Used
+
+```text
+git stash push -m "Unfinished halua cooking instructions"
+git stash list
+git add biryani.md
+git commit -m "Improve biryani recipe with cardamom preparation instruction"
+git stash pop
+git mv bhapa-pitha.md recipes/traditional/
+git mv halua.md recipes/traditional/
+git mv biryani.md recipes/eid/
+git mv shemai.md recipes/eid/
+git mv chittagong-mezban.md recipes/traditional/
+git rm old-recipe.md
+git log --stat -M
+git log --oneline
+git show MY_COMMIT_SHA
+git checkout -b time-travel-test
+git reset --hard HEAD~1
+```
+
+### Why Are Rebase and Reset --Hard Dangerous on Shared Branches?
+
+I learned that `git rebase` rewrites commit history, which may create synchronization problems for other collaborators. I also learned that `git reset --hard` can discard uncommitted tracked changes and move a branch back to an earlier commit.
+
+Using these commands carelessly on shared branches can disrupt teamwork or lead to lost work. Therefore, I practiced the reset command only on a separate testing branch.
+
+### What I Learned
+
+This chapter taught me how to temporarily save unfinished work, switch between urgent tasks, organize tracked files, inspect historical commits, and experiment with earlier versions of a project.
+
+The most important lesson was to protect committed work and use potentially destructive Git commands carefully.
+
+### Screenshot Evidence
+
+**Screenshot 22:** Using git stash.
+**Screenshot 23:** Restoring changes using git stash pop.
+**Screenshot 24:** Moving and deleting recipes with git mv and git rm.
+**Screenshot 25:** Inspecting a previous commit with git show.
+**Screenshot 26:** Reset experiment on time-travel-test branch.
