@@ -17,3 +17,4 @@
 4. Cook chicken with spices.
 5. Add rice and cook on low heat.
 6. Serve hot with salad.
+7. Crush the cardamom before adding it to enhance the flavor.
