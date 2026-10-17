@@ -11,7 +11,7 @@ Nanu then corrected the gur measurement from 2 cups to 1.5 cups. I edited the fi
 I saved the recipe using a meaningful git commit -m message. Finally, I accidentally staged bazar-list.txt and used git reset bazar-list.txt to unstage it without deleting the file.
 
 ## Commands Used
-
+```text
 git config --global user.name "Sk. Razibul Islam"
 git config --global user.email "iamrazib@gmail.com"
 git init
@@ -24,6 +24,7 @@ git commit -m "Add Nanu's bhapa pitha recipe with corrected gur measurement"
 git add bazar-list.txt
 git reset bazar-list.txt
 git log --oneline
+```
 
 ## What I Learned
 
@@ -31,12 +32,12 @@ I learned how to initialize a repository, track files, compare staged and unstag
 
 ## Screenshot Evidence
 
-Screenshot 1: Git initialization.
-Screenshot 2: Recipe staging.
-Screenshot 3: unstaged measurement correction.
-Screenshot 4: staged diff output.
-Screenshot 5: First commit.
-Screenshot 6: Unstaging the shopping list.
+**Screenshot 1:** Git initialization.
+**Screenshot 2:** Recipe staging.
+**Screenshot 3:** unstaged measurement correction.
+**Screenshot 4:** staged diff output.
+**Screenshot 5:** First commit.
+**Screenshot 6:** Unstaging the shopping list.
 
 
 ## Chapter 2: The Secret Spice
@@ -50,7 +51,7 @@ After saving `.gitignore`, I ran `git status` and noticed that the ignored files
 Finally, I committed `.gitignore` with the message "Protect secret spice recipe and exclude temporary drafts".
 
 ### Commands Used
-
+```text
 New-Item secret-masala.txt -ItemType File
 New-Item cooking-notes.tmp -ItemType File
 New-Item recipe-backup.tmp -ItemType File
@@ -61,7 +62,7 @@ git check-ignore -v secret-masala.txt cooking-notes.tmp recipe-backup.tmp draft/
 git ls-files -- secret-masala.txt
 git add .gitignore
 git commit -m "Protect secret spice recipe and exclude temporary drafts"
-
+```
 
 ### What I Learned
 
@@ -71,11 +72,11 @@ This is important in DevOps because developers must prevent sensitive data and t
 
 ### Screenshot Evidence
 
-Screenshot 7: Git status before creating `.gitignore`.
-Screenshot 8: Ignore rules and verification results.
-Screenshot 9: Successful `.gitignore` commit.
-Screenshot 10: Final commit.
-Screenshot 11: Final verification.
+**Screenshot 7:** Git status before creating `.gitignore`.
+**Screenshot 8:** Ignore rules and verification results.
+**Screenshot 9:** Successful `.gitignore` commit.
+**Screenshot 10:** Final commit.
+**Screenshot 11:** Final verification.
 
 
 ## Chapter 3: The Eid Special
@@ -95,7 +96,7 @@ When I attempted to merge the branches, Git reported a conflict in `biryani.md`.
 I removed the conflict markers, staged the corrected file, and committed the resolution.
 
 ### Commands Used
-
+```text
 git branch eid-special
 git checkout eid-special
 git add biryani.md
@@ -115,7 +116,7 @@ git checkout main
 git merge conflict-demo
 git add biryani.md
 git commit -m "Resolve biryani cardamom measurement merge conflict"
-
+```
 
 ### What I Learned
 
